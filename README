@@ -1,0 +1,35 @@
+*** What is this?
+
+libheapfile is exactly what it sounds like.  It's a file to store small- to
+medium-sized objects to disk.  Unlike your typical heap file, however, this
+one has an index on the key you provide when you store your items so lookups
+are a bit more snappy than sifting through the entire file.  There's an
+implicit free-list-style implementation for allocating new records so that
+deletes don't just leave gaps in your heap file.  However, this implementation
+can still suffer from external fragmentation depending on your usage paterns.
+Access into the file is done via mmap.
+
+*** Where does it work?
+
+Thus far, this has been developed for OS X.  It was compiled with Apple's
+g++ 4.2.1.  There's no crazy C++ here, so I imagine this will easily port
+to some other POSIX platform with a little work on the system calls.
+The heap file metadata storage and access is endian agnostic, so you could
+write a heap file on a little endian box and it should read just fine
+on a big endian box (and vice versa).
+
+*** Build instructions.
+
+Here's how to build it...you should probably use gnu make.
+
+$ make       // builds lib/libheapfile.a
+$ make test  // builds test_heapfile executable
+$ make check // runs the unit tets in test_heapfile
+
+To start using it, take a look at include/heap_file.h for the interface
+and src/heap_file.t.cpp for the a quick Hello-World-style example on
+how to use it.
+
+*** License
+
+This is released under the MIT license.
