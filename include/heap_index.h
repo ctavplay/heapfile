@@ -87,7 +87,7 @@ namespace FileUtils {
       std::auto_ptr<Record> splitOffLeft(const uint32_t size);
       
     private:
-      uint64_t m_offset; // offset into file where cache entry is stored
+      uint64_t m_offset; // offset into file where the blob is stored
       uint32_t m_key;    // a hash of the ObjectId;
       uint32_t m_size;   // the size of the payload
     };

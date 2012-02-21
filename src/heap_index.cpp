@@ -274,7 +274,7 @@ namespace FileUtils {
     // just to store metadata for both the ObjectId and the object.
     // Morover, in the metadata section of HeapIndex there are an additional
     // 16 bytes dedicated to metadata about each allocated record.
-    // Since this cache is meant to store small- to medium-sized
+    // Since this is meant to store small- to medium-sized
     // objects, they should be cheaper to store on disk than, let's say,
     // to fetch from the internet.  So the objects themselves should
     // be at least in the hundreds of bytes.  So as to keep the

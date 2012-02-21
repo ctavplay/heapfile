@@ -281,16 +281,7 @@ namespace FileUtils {
       m_maxSize = -1;
     }
 
-    // I've thought about the use case for this function some after having
-    // noticed that this function would be directly tied to a setting in
-    // the Spotify app under the Preferences menu where you can directly set
-    // the max size as a percent of available space on the disk.  So it
-    // bears noting that this function would, perhaps, be called quite often,
-    // for example, on app start/exit.  That said, it was not
-    // a requirement to have this maximum size persist.  So, it does need
-    // to get called every time the HeapFile is instantiated.
-    //
-    // Furthermore, to guarantee that the HeapFile will shrink in size
+    // To guarantee that the HeapFile will shrink in size
     // we have to remove entries from the end of the file, which could
     // end up erasing recently added entries....depending on overall
     // available space and how often we remove an entry from the heap file.
